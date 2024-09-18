@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginApp.Views.RecetaDetailPage"
+             Title="RecetaDetailPage">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15" BackgroundColor="#FFFFFF">
+            <!-- Fondo blanco profesional y limpio -->
+
+            <!-- Imagen de la receta destacada -->
+            <Frame Padding="0" HasShadow="True" CornerRadius="10" BorderColor="#E0E0E0" BackgroundColor="#FFF">
+                <Image x:Name="recetaImage" Aspect="AspectFill"  HorizontalOptions="FillAndExpand"/>
+            </Frame>
+
+            <!-- Nombre de la receta -->
+            <Label x:Name="nombreRecetaLabel"
+           FontSize="34"
+           FontAttributes="Bold"
+           TextColor="#3E2841"
+           HorizontalOptions="Center"
+           VerticalOptions="Start" />
+
+            <!-- Tarjeta de Ingredientes -->
+            <Frame Padding="10" CornerRadius="10" HasShadow="True" BorderColor="#E0E0E0" BackgroundColor="#F5F5F5">
+                <StackLayout>
+                    <Label Text="Ingredientes" FontAttributes="Bold" FontSize="20" TextColor="#7B2D88" />
+                    <Label x:Name="ingredientesValueLabel" TextColor="Gray" FontSize="16" />
+                </StackLayout>
+            </Frame>
+
+            <!-- Tarjeta de Tiempo de preparación y Dificultad -->
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <!-- Tiempo de preparación -->
+                <Frame Padding="8" CornerRadius="10" HasShadow="True" BorderColor="#E0E0E0" BackgroundColor="#F5F5F5" WidthRequest="150">
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                        <Image Source="clock_icon.png" HeightRequest="20" WidthRequest="20" />
+                        <Label Text="Tiempo:" FontAttributes="Bold" FontSize="15" TextColor="#7B2D88" />
+                        <Label x:Name="tiempoValueLabel" TextColor="Gray" FontSize="16" />
+                    </StackLayout>
+                </Frame>
+
+                <!-- Dificultad -->
+                <Frame Padding="10" CornerRadius="10" HasShadow="True" BorderColor="#E0E0E0" BackgroundColor="#F5F5F5" WidthRequest="150">
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="Dificultad:" FontAttributes="Bold" FontSize="15" TextColor="#7B2D88" />
+                        <Label x:Name="dificultadValueLabel" TextColor="Gray" FontSize="16" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <!-- Tarjeta de Pasos -->
+            <Frame Padding="10" CornerRadius="10" HasShadow="True" BorderColor="#E0E0E0" BackgroundColor="#F5F5F5">
+                <StackLayout>
+                    <Label Text="Pasos" FontAttributes="Bold" FontSize="20" TextColor="#7B2D88" />
+                    <Label x:Name="pasosValueLabel" TextColor="Gray" FontSize="16" />
+                </StackLayout>
+            </Frame>
+
+            <!-- Botón de regresar -->
+            <Button Text="Volver"
+            BackgroundColor="#BB21D6"
+            TextColor="White"
+            FontSize="18"
+            CornerRadius="20"
+            HeightRequest="50"
+            Clicked="Button_Clicked"
+            HorizontalOptions="FillAndExpand"
+            Margin="0,20,0,0" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

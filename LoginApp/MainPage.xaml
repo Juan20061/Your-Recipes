@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginApp.MainPage">
+
+    <Grid BackgroundColor="#251d25" 
+      RowDefinitions=".05*,.1*,.45*,.05*,.05*,.3*"
+      IsClippedToBounds="True">
+        <Label
+         Grid.Row="0"
+         FontSize="16"
+         HorizontalOptions="Center"
+         Text="Tus Recetas"
+         TextColor="White"
+         VerticalOptions="Center"/>
+        <Grid
+        Grid.Row="1"
+        Margin="25,10,25,10">
+
+            <RoundRectangle
+            Grid.Row="0"
+            CornerRadius="25"
+            Fill="#281929"
+            HeightRequest="45"
+            StrokeThickness="0"/>
+
+            <SearchBar
+            Grid.Row="0"
+            CancelButtonColor="White"
+            Placeholder="Busca tu receta"
+            PlaceholderColor="#AC9DB9"
+            TextColor="White"
+            VerticalOptions="Center"/>
+        </Grid>
+
+        <CarouselView
+        IndicatorView="indicatorView"
+        Grid.Row="2"
+        ItemsSource="{Binding Recetas}"
+        PeekAreaInsets="30">
+
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout
+                ItemSpacing="0"
+                Orientation="Horizontal"
+                SnapPointsAlignment="Center"
+                SnapPointsType="MandatorySingle"/>
+            </CarouselView.ItemsLayout>
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid >
+                        <Border
+                        Grid.RowSpan="3"
+                        BackgroundColor="#311B45"
+                        HeightRequest="300"
+                        Stroke="#310038"
+                        StrokeShape="RoundRectangle 30,30,30,30"
+                        StrokeThickness="3"
+                        WidthRequest="300">
+                            <Grid RowDefinitions=".2*,.6*,.2*">
+                                <ImageButton Aspect="AspectFill" 
+                                   Source="{Binding ImageSource}"
+                                   Grid.RowSpan="3"
+                                   Clicked="ImageButton_Clicked"/>
+
+                                <RoundRectangle
+                                Grid.RowSpan="3"
+                                CornerRadius="30"
+                                HeightRequest="300"
+                                WidthRequest="300"
+                                Opacity=".7">
+                                    <RoundRectangle.Fill>
+                                        <LinearGradientBrush
+                                        EndPoint="0,1">
+                                            <GradientStop Offset="0" Color="Transparent"></GradientStop>
+                                            <GradientStop Offset="1" Color="#030005"></GradientStop>
+                                        </LinearGradientBrush>
+                                    </RoundRectangle.Fill>
+                                </RoundRectangle>
+
+                                <VerticalStackLayout Grid.Row="2"
+                                                 Margin="20,0,0,0">
+                                    <Label Text="{Binding ReadTime, StringFormat='Tiempo cocinar: {0:%m} mins'}"
+                                    TextColor="White"/>
+                                    <Label Text="{Binding Name}"
+                                    TextColor="White"/>
+                                </VerticalStackLayout>
+
+                                <!--<Label
+                                Margin="0,20,20,0"
+                                FontFamily="Icons"
+                                FontSize="25"
+                                HorizontalOptions="End"
+                                Text="&#xF097;"
+                                TextColor="White"/>-->
+                            </Grid>
+                            <Border.Shadow>
+                                <Shadow 
+                                Brush="#C283FD"
+                                Opacity=".7"
+                                Radius="15"
+                                Offset="0,0"/>
+                            </Border.Shadow>
+                        </Border>
+
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <IndicatorView
+        x:Name="indicatorView"
+        Grid.Row="3"
+        HorizontalOptions="Center"
+        IndicatorColor="#616161"
+        IndicatorSize="8"
+        SelectedIndicatorColor="White"
+        VerticalOptions="Center">
+        </IndicatorView>
+        <!--OTRO-->
+        <Label Grid.Row="4"
+           Margin="20,5,20,5"
+           FontSize="16"
+           Text="Recetas recomendadas"
+           TextColor="White"
+           VerticalOptions="Center"/>
+        <CollectionView Grid.Row="5"
+            ItemsSource="{Binding Recetas2}">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="25" Orientation="Horizontal"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HeightRequest="200" WidthRequest="200">
+                        <Border
+                HeightRequest="200"
+                HorizontalOptions="Center"
+                Stroke="#310038"
+                StrokeShape="RoundRectangle 20,20,20,20"
+                StrokeThickness="3"
+                WidthRequest="200">
+                            <ImageButton
+                    Aspect="AspectFill" Source="{Binding ImageSource}" Clicked="ImageButton_Clicked_1"/>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
+</ContentPage>

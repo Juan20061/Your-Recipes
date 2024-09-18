@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginApp.RegisterPage"
+             Title="RegisterPage">
+
+    <ScrollView>
+        <Grid BackgroundColor="black">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="220"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="https://img.freepik.com/vector-premium/contorno-blanco-vegetales-costuras-aislados-fondo-oscuro_41901-1479.jpg?w=740"
+               Aspect="AspectFill"
+               Opacity="0.5"
+               Grid.RowSpan="3"
+                />
+
+            <Grid>
+                <Path Fill="Purple" Data="m-200.04006,11.90503l828.00009,0l0,366.51708c-287.70339,93.08216 -900.9187,303.78594 -1000.00009,1000.61508l0,-390.13216z"/>
+             
+            </Grid>
+
+            <StackLayout>
+                <Frame BackgroundColor="Black" 
+                       HeightRequest="60" 
+                       WidthRequest="60" 
+                       CornerRadius="100" 
+                       Padding="0" 
+                       Margin="0,100,0,0" 
+                       HorizontalOptions="Center">
+                    <Image Source="https://static.vecteezy.com/system/resources/previews/008/057/316/non_2x/register-line-icon-vector.jpg" 
+                           Aspect="AspectFill" 
+                           Margin="0"/>
+                </Frame>
+            </StackLayout>
+            
+            <Label TextColor="White" 
+                   Grid.Row="1" 
+                   Text="Registrate!"  
+                   HorizontalOptions="Center" 
+                   FontSize="Title" 
+                   FontAttributes="Italic"
+                   Padding="0" Margin="0"/>
+
+            <Grid RowSpacing="5"
+                  Grid.Row="1"
+                  Margin="20,20,20,0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Row="3" 
+                             Orientation="Vertical"
+                             HorizontalOptions="CenterAndExpand">
+                    
+                    
+                    <!--Aqui empieza el correo-->
+                    <Frame Background="Transparent" 
+                           BorderColor="Purple" 
+                           Padding="0"
+                           HorizontalOptions="FillAndExpand" 
+                           CornerRadius="30">
+
+                        <StackLayout 
+                            Orientation="Horizontal">
+                            <Frame  
+                                BackgroundColor="SkyBlue" 
+                                HeightRequest="40" 
+                                WidthRequest="40"
+                                CornerRadius="30" 
+                                Padding="0" 
+                                Margin="5">
+                                <Image 
+                                    Source="https://png.pngtree.com/png-clipart/20210312/original/pngtree-employee-information-linear-icon-png-image_6074708.jpg" Aspect="AspectFill" Margin="0"/>
+                            </Frame>
+                            <Entry 
+                                x:Name="EmailEntry"
+                                Placeholder="Digita tu correo electronico" 
+                                TextColor="White"
+                                FontAttributes="Bold"
+                                VerticalOptions="Center" 
+                                HorizontalOptions="FillAndExpand"
+                                Margin="0,0,10,0"
+                                
+                                />
+                            
+                        </StackLayout>
+                    </Frame>
+                    <!--Aqui termina-->
+                    
+                    <!--Aqui empieza la contraseña-->
+                    <Frame Background="Transparent"
+                           BorderColor="Purple"
+                           Margin="0,15,0,0" 
+                           Padding="0"
+                           HorizontalOptions="FillAndExpand" 
+                           CornerRadius="30">
+
+                        <StackLayout 
+                            Orientation="Horizontal">
+                            
+                            <Frame  
+                                BackgroundColor="SkyBlue"
+                                HeightRequest="40" 
+                                WidthRequest="40"
+                                CornerRadius="30" 
+                                Padding="0" 
+                                Margin="5">
+                                <Image Source="https://cdn.icon-icons.com/icons2/1880/PNG/512/iconfinder-lock-4341303_120563.png" Aspect="AspectFill" Margin="0"/>
+                            </Frame>
+                            <Entry x:Name="PasswordEntry"
+                                   Placeholder="Digita tu contraseña" 
+                                   TextColor="White" 
+                                   FontAttributes="Bold"
+                                   VerticalOptions="Center" 
+                                   HorizontalOptions="FillAndExpand" 
+                                   Margin="0,0,20,0" 
+                                   IsPassword="True"/>
+                        </StackLayout>
+                    </Frame>
+                    <!--Aqui termina la contraseña-->
+
+                    <Frame Background="Transparent" 
+                           BorderColor="Purple" 
+                           Padding="0"
+                           HorizontalOptions="FillAndExpand" 
+                           CornerRadius="30">
+
+                        <StackLayout Orientation="Horizontal">
+                            <Frame  BackgroundColor="SkyBlue" 
+                                    HeightRequest="40" 
+                                    WidthRequest="40"
+                                    CornerRadius="30" 
+                                    Padding="0" 
+                                    Margin="5">
+                                <Image Source="https://png.pngtree.com/png-clipart/20210312/original/pngtree-employee-information-linear-icon-png-image_6074708.jpg" Aspect="AspectFill" Margin="0"/>
+                            </Frame>
+                            <Entry x:Name="ConfirmEmailEntry" 
+                                   Placeholder="Confirma Correo" 
+                                   TextColor="White"
+                                   FontAttributes="Bold"
+                                   VerticalOptions="Center" 
+                                   HorizontalOptions="FillAndExpand"
+                                   Margin="0,0,20,0"/>
+                        </StackLayout>
+                    </Frame>
+                    
+                    
+                    <Frame Background="Transparent"
+                           BorderColor="Purple"
+                           Margin="0,15,0,0" 
+                           Padding="0"
+                           HorizontalOptions="FillAndExpand" 
+                           CornerRadius="30">
+
+                        <StackLayout Orientation="Horizontal">
+                            <Frame  
+                                BackgroundColor="SkyBlue"
+                                HeightRequest="40" 
+                                WidthRequest="40"
+                                CornerRadius="30" 
+                                Padding="0" 
+                                Margin="5">
+                                <Image Source="https://cdn.icon-icons.com/icons2/1880/PNG/512/iconfinder-lock-4341303_120563.png" 
+                                       Aspect="AspectFill" 
+                                       Margin="0"/>
+                            </Frame>
+                            <Entry 
+                                Placeholder="Confirmar Contraseña" 
+                                x:Name="ConfirmPasswordEntry"
+                                TextColor="White"
+                                FontAttributes="Bold" 
+                                VerticalOptions="Center" 
+                                HorizontalOptions="FillAndExpand" 
+                                Margin="0,0,20,0" 
+                                IsPassword="True"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Button Text="Registrarse" 
+                            TextColor="White" 
+                            BackgroundColor="Purple" 
+                            FontAttributes="Bold"
+                            CornerRadius="30"
+                            Clicked="OnRegisterClicked"
+                            WidthRequest="200" 
+                            Margin="0,15,0,0" 
+                            Command="{Binding RegisterCommand}"/>
+
+                    <Label x:Name="MessageLabel" TextColor="White"/>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginApp.Views.AddRecipePage"
+             Title="AddRecipePage">
+    <ScrollView>
+        <StackLayout Padding="10" BackgroundColor="#F3E5F5">
+            <!-- Fondo claro para dar sensación de amplitud -->
+
+            <!-- Entrada para el nombre de la receta -->
+            <Label Text="Nombre de la receta" FontAttributes="Bold" TextColor="#7B2D88" />
+            <!-- Color vibrante pero no dominante -->
+            <Entry x:Name="Xreceta" Placeholder="Nombre de la receta" BackgroundColor="#EDE7F6" TextColor="Black" />
+            <!-- Entrada con contraste sutil -->
+
+            <!-- Botón para agregar ingredientes -->
+            <Button  x:Name="AddIngredients" Text="Agregar Ingredientes" Clicked="AddIngredients_Clicked"  BackgroundColor="#BB21D6" TextColor="White" />
+            <!-- Botón destacado pero no agresivo -->
+
+            <!-- Ingredientes seleccionados -->
+            <Label Text="Ingredientes seleccionados:" FontAttributes="Bold" TextColor="#7B2D88" />
+            <Label x:Name="SelectedIngredientsLabel" TextColor="#9A2BAE" BackgroundColor="#EDE7F6" />
+
+            <!-- Tiempo de preparación -->
+            <Label Text="Tiempo de preparación (minutos)" FontAttributes="Bold" TextColor="#7B2D88" />
+            <Entry x:Name="tiempo" Placeholder="Tiempo en minutos" BackgroundColor="#EDE7F6" TextColor="#9A2BAE" Keyboard="Numeric" />
+
+            <!-- Pasos a realizar -->
+            <Label Text="Pasos a realizar" FontAttributes="Bold" TextColor="#7B2D88" />
+            <Editor x:Name="Xpasos" Placeholder="Describe los pasos para realizar la receta" AutoSize="TextChanges" HeightRequest="100" BackgroundColor="#EDE7F6" TextColor="#9A2BAE" />
+
+            <!-- Dificultad -->
+            <Label Text="Dificultad" FontAttributes="Bold" TextColor="#7B2D88" />
+            <Picker x:Name="dificultadPicker" TextColor="#9A2BAE" BackgroundColor="#EDE7F6">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Fácil</x:String>
+                        <x:String>Media</x:String>
+                        <x:String>Difícil</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <!-- Botón para seleccionar una imagen -->
+            <Button x:Name="SelectImageButton" Text="Seleccionar Imagen" Clicked="SelectImageButton_Clicked" BackgroundColor="#BB21D6" TextColor="White" />
+
+            <!-- Imagen seleccionada -->
+            <Image x:Name="recetaImage" HeightRequest="250" WidthRequest="250" BackgroundColor="#EDE7F6" />
+            <!-- Fondo claro y limpio para destacar la imagen -->
+
+            <!-- Botón para guardar la receta -->
+            <Button x:Name="saveButton" Text="Guardar Receta" Clicked="saveButton_Clicked" BackgroundColor="#9A2BAE" TextColor="White" />
+
+            <!-- ListView para mostrar la lista de recetas -->
+            <ListView x:Name="listview" ItemTapped="listview_ItemTapped" HasUnevenRows="True" SeparatorVisibility="Default" BackgroundColor="#F3E5F5">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Margin="10" Padding="10" HasShadow="True" BorderColor="#BB21D6" BackgroundColor="#EDE7F6">
+                                <StackLayout Orientation="Vertical" Spacing="10">
+                                    <Frame Padding="0" HeightRequest="150" WidthRequest="150" HasShadow="False" HorizontalOptions="Center" BackgroundColor="#9A2BAE">
+                                        <Image Source="{Binding Imagen}" Aspect="AspectFill" HeightRequest="150" WidthRequest="150" />
+                                    </Frame>
+                                    <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="10">
+                                        <Label Text="{Binding NombreReceta}" FontAttributes="Bold" FontSize="Large" TextColor="#7B2D88" HorizontalOptions="Center" />
+                                        <Label Text="{Binding Ingredientes}" FontSize="Medium" TextColor="Gray" LineBreakMode="TailTruncation" HorizontalOptions="Center" />
+                                        <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
+                                            <Image Source="clock_icon.png" HeightRequest="20" WidthRequest="20" />
+                                            <Label Text="{Binding TiempoPreparacion}" FontSize="Small" TextColor="Gray" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

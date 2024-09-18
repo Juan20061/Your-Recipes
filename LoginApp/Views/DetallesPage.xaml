@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="YourRecipes.Pages.DetallesPage"
+             Title="Detalles"
+             BackgroundColor="#212121">
+    <VerticalStackLayout Padding="10">
+        <Image x:Name="RecipeImage" Aspect="AspectFill"  />
+        <Label x:Name="RecipeDescription" TextColor="White" FontSize="Large"/>
+        <Label x:Name="RecipeIngredientes" TextColor="White"/>
+        <Label x:Name="RecipePreparacion" TextColor="White"/>
+
+    </VerticalStackLayout>
+</ContentPage>
