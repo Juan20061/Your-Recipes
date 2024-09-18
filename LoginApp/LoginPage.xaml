@@ -6,7 +6,7 @@
              Shell.NavBarIsVisible="False">
 
     <ScrollView>
-        <Grid BackgroundColor="Black">
+        <Grid BackgroundColor="Red">
             <Grid.RowDefinitions>
                 <RowDefinition Height="220"/>
                 <RowDefinition Height="*"/>
