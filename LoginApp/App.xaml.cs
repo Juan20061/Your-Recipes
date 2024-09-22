@@ -1,10 +1,11 @@
-﻿using LoginApp.Views;
+﻿using LoginApp.Models;
+using LoginApp.Views;
 
 namespace LoginApp
 {
     public partial class App : Application
     {
-
+        private readonly LocalDbService _dbService;
 
         public App()
         {
@@ -21,9 +22,7 @@ namespace LoginApp
             {
                 MainPage = new NavigationPage(new LoginPage());
             }
-            //MainPage = new NavigationPage (new LoginPage());
 
-            //MainPage = new AppShell(); //modificacion
         }
 
         private bool CheckUserAuthentication()

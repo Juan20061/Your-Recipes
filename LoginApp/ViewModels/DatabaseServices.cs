@@ -18,11 +18,13 @@ namespace LoginApp
         public Task<int> AddUserAsync(User user)
         {
             return _database.InsertAsync(user);
+
         }
 
         public Task<User> GetUserByEmailAsync(string email)
         {
             return _database.Table<User>().Where(u => u.Email == email).FirstOrDefaultAsync();
+
         }
 
         public Task<User> LoginUserAsync(string email, string password)
@@ -31,6 +33,14 @@ namespace LoginApp
                             .Where(u => u.Email == email && u.Password == password)
                             .FirstOrDefaultAsync();
         }
+
+        //Cerrar sesión
+        //public void Logout()
+        //{
+        //    // Aquí puedes limpiar las credenciales del usuario
+        //    // Por ejemplo, eliminar tokens almacenados en SecureStorage
+        //    SecureStorage.Remove("auth_token");
+        //}
     }
 }
 
