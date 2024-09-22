@@ -4,12 +4,39 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:LoginApp"
-    Shell.FlyoutBehavior="Disabled"
-    Title="LoginApp">
+    xmlns:views="clr-namespace:LoginApp.Views"
+    Shell.FlyoutBehavior="Flyout"
+    Shell.FlyoutWidth="250"
+    FlyoutHeaderBehavior="CollapseOnScroll"
+    Title="Recetas">
+    <Shell.FlyoutHeader>
+        <StackLayout Padding="18">
+            <Image Source="logo2.png" HeightRequest="80" HorizontalOptions="Center"/>
+        </StackLayout>
+    </Shell.FlyoutHeader>
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:LoginPage}"
-        Route="MainPage" />
+    <FlyoutItem Title="Inicio" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Agregar" Icon="nueva.png">
+        <ShellContent ContentTemplate="{DataTemplate views:AddRecipePage}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Crear cuenta" Icon="perfil.png">
+        <ShellContent ContentTemplate="{DataTemplate views:RegistroPage}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Mis recetas" Icon="uten1.png">
+        <ShellContent ContentTemplate="{DataTemplate views:MeRecipePage }"/>
+    </FlyoutItem>
+    <Shell.FlyoutFooter>
+        <Button 
+           x:Name="OnLogout"
+           Text="Cerrar Sesión"
+           TextColor="White"
+           BackgroundColor="#281929"
+           Clicked="OnLogout_Clicked"/>
+    </Shell.FlyoutFooter>
 
 </Shell>
