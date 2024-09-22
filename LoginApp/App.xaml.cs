@@ -5,8 +5,6 @@ namespace LoginApp
 {
     public partial class App : Application
     {
-        private readonly LocalDbService _dbService;
-
         public App()
         {
             InitializeComponent();

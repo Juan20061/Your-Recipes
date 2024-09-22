@@ -34,13 +34,6 @@ namespace LoginApp
                             .FirstOrDefaultAsync();
         }
 
-        //Cerrar sesión
-        //public void Logout()
-        //{
-        //    // Aquí puedes limpiar las credenciales del usuario
-        //    // Por ejemplo, eliminar tokens almacenados en SecureStorage
-        //    SecureStorage.Remove("auth_token");
-        //}
     }
 }
 
