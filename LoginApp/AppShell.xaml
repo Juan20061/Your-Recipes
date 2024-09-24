@@ -5,38 +5,21 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:LoginApp"
     xmlns:views="clr-namespace:LoginApp.Views"
+    xmlns:models="clr-namespace:LoginApp.Models"
     Shell.FlyoutBehavior="Flyout"
     Shell.FlyoutWidth="250"
     FlyoutHeaderBehavior="CollapseOnScroll"
     Title="Recetas">
-    <Shell.FlyoutHeader>
-        <StackLayout Padding="18">
-            <Image Source="logo2.png" HeightRequest="80" HorizontalOptions="Center"/>
-        </StackLayout>
-    </Shell.FlyoutHeader>
+    
 
-    <FlyoutItem Title="Inicio" Icon="home.png">
-        <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
-    </FlyoutItem>
-
-    <FlyoutItem Title="Agregar" Icon="nueva.png">
-        <ShellContent ContentTemplate="{DataTemplate views:AddRecipePage}"/>
-    </FlyoutItem>
-
-    <FlyoutItem Title="Crear cuenta" Icon="perfil.png">
-        <ShellContent ContentTemplate="{DataTemplate views:RegistroPage}"/>
-    </FlyoutItem>
-
-    <FlyoutItem Title="Mis recetas" Icon="uten1.png">
-        <ShellContent ContentTemplate="{DataTemplate views:MeRecipePage }"/>
-    </FlyoutItem>
+    <!-- Footer para cerrar sesión -->
     <Shell.FlyoutFooter>
         <Button 
-           x:Name="OnLogout"
-           Text="Cerrar Sesión"
-           TextColor="White"
-           BackgroundColor="#281929"
-           Clicked="OnLogout_Clicked"/>
+            x:Name="OnLogout"
+            Text="Cerrar Sesión"
+            TextColor="White"
+            BackgroundColor="#281929"
+            Clicked="OnLogout_Clicked"/>
     </Shell.FlyoutFooter>
 
 </Shell>

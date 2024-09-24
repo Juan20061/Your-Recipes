@@ -1,67 +1,90 @@
 using LoginApp.ViewModels;
+using System.Threading.Tasks;
 
 namespace LoginApp;
 
 public partial class RegisterPage : ContentPage
 {
-    private readonly UserServices _userService;
-
+    private readonly AuthService _authService;
     public RegisterPage()
 	{
 		InitializeComponent();
-        var databaseService = new DatabaseServices();  // Inicializar el servicio de base de datos
-        _userService = new UserServices(databaseService);  // Inicializar el servicio de usuarios
+        _authService = new AuthService();  // Inicializa AuthService aquí
 
     }
 
     private async void OnRegisterClicked(object sender, EventArgs e)
     {
-        // Lógica de registro
         string email = EmailEntry.Text;
         string confirmEmail = ConfirmEmailEntry.Text;
         string password = PasswordEntry.Text;
         string confirmPassword = ConfirmPasswordEntry.Text;
 
-        string registrationResult = await _userService.RegisterUserAsync(email, confirmEmail, password, confirmPassword);
+        // Validar los datos de registro
+        string validationMessage = ValidateRegistrationForm(email, confirmEmail, password, confirmPassword);
 
-        if (registrationResult == "Usuario registrado con éxito")
+        if (!string.IsNullOrEmpty(validationMessage))
         {
-            await DisplayAlert("Success", registrationResult, "OK");
+            await DisplayAlert("Error", validationMessage, "OK");
+            return;
+        }
+
+        // Registrar usuario usando AuthService
+        bool registrationSuccess = await RegisterUserAsync(email, password);
+
+        if (registrationSuccess)
+        {
+            await DisplayAlert("Éxito", "Usuario registrado con éxito", "OK");
             await Navigation.PopAsync(); // Vuelve a la página de inicio de sesión
         }
         else
         {
-            await DisplayAlert("Error", registrationResult, "OK");
+            await DisplayAlert("Error", "Error en el registro. Inténtalo de nuevo.", "OK");
         }
-
     }
 
-    private async Task<bool> RegisterUser()
+    private string ValidateRegistrationForm(string email, string confirmEmail, string password, string confirmPassword)
     {
-        // Aquí implementas tu lógica de registro
-        string password = PasswordEntry.Text;
-        string email = EmailEntry.Text;
-
-        // Validar los datos del usuario (ejemplo simple)
-        if (string.IsNullOrEmpty(password) || string.IsNullOrEmpty(email))
+        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(confirmEmail) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))
         {
-            return false; // Datos inválidos
+            return "Todos los campos son obligatorios.";
         }
 
-        // Guardar los datos del usuario en una base de datos o servicio
-        // Aquí puedes llamar a un servicio de API o guardar en una base de datos local
-        bool databaseSevice = await SaveUserToDatabase(password, email);
+        if (!email.Equals(confirmEmail))
+        {
+            return "Los correos electrónicos no coinciden.";
+        }
 
-        return databaseSevice;
+        if (!password.Equals(confirmPassword))
+        {
+            return "Las contraseñas no coinciden.";
+        }
+
+        if (password.Length < 6)
+        {
+            return "La contraseña debe tener al menos 6 caracteres.";
+        }
+
+        return string.Empty; // No hay errores
     }
 
-    private Task<bool> SaveUserToDatabase(string password, string email)
+    private async Task<bool> RegisterUserAsync(string email, string password)
     {
-        // Simulación de guardar en base de datos (reemplaza esto con tu lógica real)
-        // Por ejemplo, podrías usar SQLite, un servicio web, etc.
-        return Task.FromResult(true); // Cambia esto según tu lógica
+        try
+        {
+            // Llama a AuthService para registrar el usuario
+            var result = await _authService.RegisterUserAsync(email, password);
+            return result; // Si el resultado es true, el registro fue exitoso
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", "No se pudo registrar el usuario. Por favor, inténtalo más tarde.", "OK");
+            Console.WriteLine(ex.Message);  // Manejamos cualquier excepción durante el registro
+            return false;
+        }
     }
-
-
 
 }
+
+
+

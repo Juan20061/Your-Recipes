@@ -1,37 +1,41 @@
 namespace LoginApp;
+
+using LoginApp.Models;
 using LoginApp.ViewModels;
 public partial class LoginPage : ContentPage
 {
     //private readonly UserServices _userService;
-    private readonly UserServices _userService;
+    private readonly AuthService _authService;
+
 
 
     public LoginPage()
 	{
 		InitializeComponent();
 
-        var databaseService = new DatabaseServices(); // Inicializa tu servicio de base de datos
-        _userService = new UserServices(databaseService); // Inicializa tu servicio de usuario
+        _authService = new AuthService();
+
     }
 
     private async void OnLoginClicked(object sender, EventArgs e)
     {
-        // Lógica de autenticación
-        string email = EmailEntry.Text;
+        string username = EmailEntry.Text;
         string password = PasswordEntry.Text;
 
-        string loginResult = await _userService.LoginUserAsync(email, password);
+        // Intentar iniciar sesión
+        bool isAuthenticated = await _authService.LoginAsync(username, password);
 
-        if (loginResult == "Inicio de sesión exitoso")
+        if (isAuthenticated)
         {
-            // Almacena el token de autenticación de forma segura
-            await SecureStorage.SetAsync("auth_token", "your_token_value");
+            // Guarda el token de autenticación
+            await SecureStorage.SetAsync("auth_token", "logged_in_user_token");
 
+            // Redirigir a la página principal si la autenticación fue exitosa
             Application.Current.MainPage = new AppShell();
         }
         else
         {
-            await DisplayAlert("Error", loginResult, "OK");
+            await DisplayAlert("Error", "Usuario o contraseña incorrectos", "OK");
         }
     }
 

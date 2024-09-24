@@ -1,8 +1,4 @@
 using LoginApp.Models;
-
-
-
-
 namespace LoginApp.Views;
 
 public partial class AddRecipePage : ContentPage

@@ -13,6 +13,7 @@ namespace LoginApp.Models
         private const string DB_NAME = "demo_local_db.db3";
         private readonly SQLiteAsyncConnection _connection;
 
+
         public LocalDbService()
         {
             _connection = new SQLiteAsyncConnection(Path.Combine(FileSystem.AppDataDirectory,DB_NAME));
@@ -33,7 +34,7 @@ namespace LoginApp.Models
             return await _connection.Table<Recetas>().Where(x => x.Id == id).FirstOrDefaultAsync();
         }
 
-        //Metodod para crear registros
+        //Metodo para crear registros
         public  async Task Create(Recetas clientes)
         {
             await _connection.InsertAsync(clientes);

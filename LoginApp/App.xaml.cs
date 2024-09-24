@@ -1,41 +1,38 @@
 ﻿using LoginApp.Models;
+using LoginApp.ViewModels;
 using LoginApp.Views;
 
 namespace LoginApp
 {
     public partial class App : Application
     {
+        private readonly AuthService _authService;
+        private readonly LocalDbService _dbService;
         public App()
         {
             InitializeComponent();
 
-            // Verifica si el usuario está autenticado
-            bool isAuthenticated = CheckUserAuthentication();
+            _dbService = new LocalDbService();
 
-            if (isAuthenticated)
-            {
-                MainPage = new AppShell();
-            }
-            else
-            {
-                MainPage = new NavigationPage(new LoginPage());
-            }
+            _authService = new AuthService();
+
+            // Llama al método de verificación de autenticación
+            CheckUserAuthenticationAsync();
 
         }
 
-        private bool CheckUserAuthentication()
+        private async Task CheckUserAuthenticationAsync()
         {
-            // Intenta obtener el token de autenticación del almacenamiento seguro
-            var token = SecureStorage.GetAsync("auth_token").Result;
+            bool isAuthenticated = await _authService.IsLoggedInAsync();
 
-            // Si no hay token, redirige al usuario a la página de inicio de sesión
-            if (string.IsNullOrEmpty(token))
+            if (isAuthenticated)
             {
-                return false;
+                MainPage = new AppShell(); // Usuario autenticado, navega a la AppShell
             }
-
-            // Si hay un token, considera al usuario autenticado
-            return true;
+            else
+            {
+                MainPage = new NavigationPage(new LoginPage()); // Redirigir a la página de inicio de sesión
+            }
         }
     }
 }

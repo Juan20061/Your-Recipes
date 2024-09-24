@@ -3,52 +3,53 @@ using LoginApp.Models;
 
 namespace LoginApp.ViewModels
 {
-    public  class UserServices
+    public class AuthService
     {
-        private readonly DatabaseServices _databaseService;
-
-        public UserServices(DatabaseServices databaseService)
+        // Método para simular el inicio de sesión
+        public async Task<bool> LoginAsync(string username, string password)
         {
-            _databaseService = databaseService;
-        }
+            // Obtener los datos registrados
+            var registeredEmail = await SecureStorage.GetAsync("registered_email");
+            var registeredPassword = await SecureStorage.GetAsync("registered_password");
 
-        public async Task<string> RegisterUserAsync(string email, string confirmEmail, string password, string confirmPassword)
-        {
-            // Verificar si el correo y el confirmar correo coinciden
-            if (email != confirmEmail)
-                return "Los correos electrónicos no coinciden";
-
-            // Verificar si la contraseña y confirmar contraseña coinciden
-            if (password != confirmPassword)
-                return "Las contraseñas no coinciden";
-
-            // Verificar si ya existe un usuario con el mismo correo
-            var existingUser = await _databaseService.GetUserByEmailAsync(email);
-            if (existingUser != null)
-                return "Este correo electrónico ya está registrado";
-
-            // Crear el nuevo usuario
-            var user = new User
+            // Verificar si el usuario y la contraseña coinciden
+            if (username == registeredEmail && password == registeredPassword)
             {
-                Email = email,
-                ConfirmEmail = confirmEmail,
-                Password = password,
-                ConfirmPassword = confirmPassword
-            };
-
-            await _databaseService.AddUserAsync(user);
-            return "Usuario registrado con éxito";
+                // Guarda un token de autenticación simulado en el almacenamiento seguro
+                await SecureStorage.SetAsync("auth_token", "logged_in_user_token");
+                return true;
+            }
+            return false;
         }
-
-        // Método para inicio de sesión
-        public async Task<string> LoginUserAsync(string email, string password)
+        // Método para cerrar sesión
+        public async Task LogoutAsync()
         {
-            var user = await _databaseService.LoginUserAsync(email, password);
-
-            if (user == null)
-                return "Correo o contraseña incorrectos";
-
-            return "Inicio de sesión exitoso";
+            // Eliminar token del almacenamiento seguro
+            SecureStorage.Remove("auth_token");
+            await Task.CompletedTask;
         }
+        // Comprobar si el usuario está autenticado
+        public async Task<bool> IsLoggedInAsync()
+        {
+            var token = await SecureStorage.GetAsync("auth_token");
+            return !string.IsNullOrEmpty(token);
+        }
+        public async Task<bool> RegisterUserAsync(string email, string password)
+        {
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            {
+                return false; // El registro falla si faltan datos
+            }
+
+            // Guardar email y contraseña en almacenamiento seguro (o en base de datos local)
+            await SecureStorage.SetAsync("registered_email", email);
+            await SecureStorage.SetAsync("registered_password", password);
+
+            // Guardar un token de autenticación
+            await SecureStorage.SetAsync("auth_token", "registered_user_token");
+            return true;
+        }
+
     }
+
 }
