@@ -13,11 +13,13 @@ namespace LoginApp
             InitializeComponent();
 
             _dbService = new LocalDbService();
-
             _authService = new AuthService();
 
             // Llama al método de verificación de autenticación
             CheckUserAuthenticationAsync();
+
+            MainPage = new MainPage();
+
 
         }
 
