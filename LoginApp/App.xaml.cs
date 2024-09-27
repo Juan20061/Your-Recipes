@@ -18,7 +18,7 @@ namespace LoginApp
             // Llama al método de verificación de autenticación
             CheckUserAuthenticationAsync();
 
-            MainPage = new MainPage();
+            MainPage = new LoginPage();
 
 
         }

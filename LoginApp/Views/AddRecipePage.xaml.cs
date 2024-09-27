@@ -8,7 +8,7 @@ public partial class AddRecipePage : ContentPage
     private string _imagePath;
     private string _selectedIngredients;
 
-    private readonly List<string> _ingredientesDisponibles = new List<string> { "Harina", "Huevos", "Leche", "Azúcar", "Mapache" };
+    private readonly List<string> _ingredientesDisponibles = new List<string> { "Harina", "Huevos", "Leche", "Azúcar",};
 
     public AddRecipePage(LocalDbService dbService)
 	{
