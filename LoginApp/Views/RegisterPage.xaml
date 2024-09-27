@@ -4,24 +4,25 @@
              x:Class="LoginApp.RegisterPage"
              Title="RegisterPage">
 
-    <ScrollView>
-        <Grid BackgroundColor="black">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="220"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
-            <Image Source="https://img.freepik.com/vector-premium/contorno-blanco-vegetales-costuras-aislados-fondo-oscuro_41901-1479.jpg?w=740"
+            <!--<Image Source="https://img.freepik.com/vector-premium/contorno-blanco-vegetales-costuras-aislados-fondo-oscuro_41901-1479.jpg?w=740"
                Aspect="AspectFill"
                Opacity="0.5"
                Grid.RowSpan="3"
-                />
+                />-->
 
-            <Grid>
-                <Path Fill="Purple" Data="m-200.04006,11.90503l828.00009,0l0,366.51708c-287.70339,93.08216 -900.9187,303.78594 -1000.00009,1000.61508l0,-390.13216z"/>
-             
-            </Grid>
+        <Grid>
+            <Image
+                Source="budin.jfif"
+                Aspect="AspectFill"
+                />
+        </Grid>
 
             <StackLayout>
                 <Frame BackgroundColor="Black" 
@@ -201,5 +202,4 @@
                 </StackLayout>
             </Grid>
         </Grid>
-    </ScrollView>
 </ContentPage>

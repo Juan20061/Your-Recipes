@@ -1,19 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LoginApp.MainPage">
+             x:Class="LoginApp.MainPage"
+             Title="Inicio">
 
-    <Grid BackgroundColor="#251d25" 
+    <Grid 
       RowDefinitions=".05*,.1*,.45*,.05*,.05*,.3*"
       IsClippedToBounds="True">
-        <Label
+        <!--<Label
          Grid.Row="0"
-         FontSize="16"
+         FontSize="37"
          HorizontalOptions="Center"
          Text="Tus Recetas"
-         TextColor="White"
-         VerticalOptions="Center"/>
-        <Grid
+         FontFamily="Sinera"
+         TextColor="LightSlateGray"
+         VerticalOptions="Center"/>-->
+        <!--<Grid
         Grid.Row="1"
         Margin="25,10,25,10">
 
@@ -31,98 +33,97 @@
             PlaceholderColor="#AC9DB9"
             TextColor="White"
             VerticalOptions="Center"/>
-        </Grid>
-
-        <CarouselView
+        </Grid>-->
+            <CarouselView
         IndicatorView="indicatorView"
         Grid.Row="2"
         ItemsSource="{Binding Recetas}"
         PeekAreaInsets="30">
 
-            <CarouselView.ItemsLayout>
-                <LinearItemsLayout
+                <CarouselView.ItemsLayout>
+                    <LinearItemsLayout
                 ItemSpacing="0"
                 Orientation="Horizontal"
                 SnapPointsAlignment="Center"
                 SnapPointsType="MandatorySingle"/>
-            </CarouselView.ItemsLayout>
-            <CarouselView.ItemTemplate>
-                <DataTemplate>
-                    <Grid >
-                        <Border
+                </CarouselView.ItemsLayout>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid >
+                            <Border
                         Grid.RowSpan="3"
                         BackgroundColor="#311B45"
                         HeightRequest="300"
-                        Stroke="#310038"
+                        Stroke="OliveDrab"
                         StrokeShape="RoundRectangle 30,30,30,30"
                         StrokeThickness="3"
-                        WidthRequest="300">
-                            <Grid RowDefinitions=".2*,.6*,.2*">
-                                <ImageButton Aspect="AspectFill" 
+                        WidthRequest="295">
+                                <Grid RowDefinitions=".2*,.6*,.2*">
+                                    <ImageButton Aspect="AspectFill" 
                                    Source="{Binding ImageSource}"
                                    Grid.RowSpan="3"
                                    Clicked="ImageButton_Clicked"/>
 
-                                <RoundRectangle
+                                    <RoundRectangle
                                 Grid.RowSpan="3"
                                 CornerRadius="30"
                                 HeightRequest="300"
                                 WidthRequest="300"
                                 Opacity=".7">
-                                    <RoundRectangle.Fill>
-                                        <LinearGradientBrush
+                                        <RoundRectangle.Fill>
+                                            <LinearGradientBrush
                                         EndPoint="0,1">
-                                            <GradientStop Offset="0" Color="Transparent"></GradientStop>
-                                            <GradientStop Offset="1" Color="#030005"></GradientStop>
-                                        </LinearGradientBrush>
-                                    </RoundRectangle.Fill>
-                                </RoundRectangle>
+                                                <GradientStop Offset="0" Color="Transparent"></GradientStop>
+                                                <GradientStop Offset="1" Color="#030005"></GradientStop>
+                                            </LinearGradientBrush>
+                                        </RoundRectangle.Fill>
+                                    </RoundRectangle>
 
-                                <VerticalStackLayout Grid.Row="2"
+                                    <VerticalStackLayout Grid.Row="2"
                                                  Margin="20,0,0,0">
-                                    <Label Text="{Binding ReadTime, StringFormat='Tiempo cocinar: {0:%m} mins'}"
-                                    TextColor="White"/>
-                                    <Label Text="{Binding Name}"
-                                    TextColor="White"/>
-                                </VerticalStackLayout>
+                                        <Label Text="{Binding ReadTime, StringFormat='Tiempo cocinar: {0:%m} mins'}" FontFamily="Sinera"
+                                    TextColor="WhiteSmoke" Margin="1"/>
+                                        <Label Text="{Binding Name}" FontFamily="Sinera"
+                                    TextColor="WhiteSmoke" Margin="1"/>
+                                    </VerticalStackLayout>
 
-                                <!--<Label
+                                    <!--<Label
                                 Margin="0,20,20,0"
                                 FontFamily="Icons"
                                 FontSize="25"
                                 HorizontalOptions="End"
                                 Text="&#xF097;"
                                 TextColor="White"/>-->
-                            </Grid>
-                            <Border.Shadow>
-                                <Shadow 
-                                Brush="#C283FD"
+                                </Grid>
+                                <Border.Shadow>
+                                    <Shadow 
+                                Brush="GreenYellow"
                                 Opacity=".7"
                                 Radius="15"
                                 Offset="0,0"/>
-                            </Border.Shadow>
-                        </Border>
+                                </Border.Shadow>
+                            </Border>
 
-                    </Grid>
-                </DataTemplate>
-            </CarouselView.ItemTemplate>
-        </CarouselView>
-
+                        </Grid>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
         <IndicatorView
         x:Name="indicatorView"
         Grid.Row="3"
         HorizontalOptions="Center"
-        IndicatorColor="#616161"
+        IndicatorColor="OliveDrab"
         IndicatorSize="8"
-        SelectedIndicatorColor="White"
+        SelectedIndicatorColor="YellowGreen"
         VerticalOptions="Center">
         </IndicatorView>
         <!--OTRO-->
         <Label Grid.Row="4"
            Margin="20,5,20,5"
-           FontSize="16"
+           FontSize="18"
            Text="Recetas recomendadas"
-           TextColor="White"
+           TextColor="LightSlateGray"
+           FontFamily="Sinera"
            VerticalOptions="Center"/>
         <CollectionView Grid.Row="5"
             ItemsSource="{Binding Recetas2}">
@@ -136,7 +137,7 @@
                         <Border
                 HeightRequest="200"
                 HorizontalOptions="Center"
-                Stroke="#310038"
+                Stroke="OliveDrab"
                 StrokeShape="RoundRectangle 20,20,20,20"
                 StrokeThickness="3"
                 WidthRequest="200">
