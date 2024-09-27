@@ -2,13 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LoginApp.LoginPage"
+             BackgroundColor="Orange"
           
              Shell.NavBarIsVisible="False">
 
+    <ScrollView>
 
+        <Frame CornerRadius="30" Padding="30" Margin="200" BackgroundColor="Aqua" HasShadow="True">
 
-        <ScrollView>
-            <Grid >
+            <Grid  >
                 <!-- Fondo rosa pastel -->
                 <Grid.RowDefinitions>
                     <RowDefinition Height="220"/>
@@ -63,7 +65,7 @@
                                FontAttributes="Bold"
                                VerticalOptions="Center" 
                                HorizontalOptions="FillAndExpand"
-                               Margin="0,0,20,0"/>
+                               Margin="0,0,10,0"/>
                             </StackLayout>
                         </Frame>
 
@@ -101,7 +103,7 @@
                     </StackLayout>
                 </Grid>
             </Grid>
-        </ScrollView>
 
-
+        </Frame>
+    </ScrollView>
 </ContentPage>
