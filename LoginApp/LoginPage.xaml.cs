@@ -57,7 +57,7 @@ public partial class LoginPage : ContentPage
             return true;
         }
         else
-        {
+        { 
             // Autenticación fallida
             return false;
         }
