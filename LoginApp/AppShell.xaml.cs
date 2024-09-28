@@ -30,6 +30,7 @@ namespace LoginApp
         {
             Title = "Inicio",
             Icon = "home.png",
+            
         };
         homeSection.Items.Add(new ShellContent
         {

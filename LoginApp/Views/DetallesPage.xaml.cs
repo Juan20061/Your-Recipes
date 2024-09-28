@@ -10,7 +10,9 @@ public partial class DetallesPage : ContentPage
 
 		RecipeImage.Source = item.ImageSource;
         RecipeDescription.Text = item.Description;
-        RecipeIngredientes.Text = item.Ingredientes;
-        RecipePreparacion.Text = item.Preparacion;
+
+        //RecipeImage.Source = recipe.ImageSource;
+        //RecipeDescription.Text = recipe.NameReceta;
+        BindingContext = item;
     }
 }

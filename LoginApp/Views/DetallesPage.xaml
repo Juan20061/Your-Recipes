@@ -2,12 +2,43 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="YourRecipes.Pages.DetallesPage"
-             Title="Detalles">
-    <VerticalStackLayout Padding="10">
+             Title="Detalles"
+             >
+    <!--<VerticalStackLayout Padding="10">
         <Image x:Name="RecipeImage" Aspect="AspectFill"  />
         <Label x:Name="RecipeDescription" TextColor="LightSlateGray" FontSize="Large"/>
         <Label x:Name="RecipeIngredientes" TextColor="White"/>
         <Label x:Name="RecipePreparacion" TextColor="White"/>
 
-    </VerticalStackLayout>
+    </VerticalStackLayout>-->
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" >
+            <Image x:Name="RecipeImage" Aspect="AspectFill"  />
+            <Label x:Name="RecipeDescription" FontFamily="Sinera"  FontSize="Large" Padding="5"/>
+
+            <Label Padding="5" FontFamily="Sinera" Text="Ingredientes:" FontAttributes="Bold"/>
+            <CollectionView ItemsSource="{Binding Ingredientes}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding IsCompleted}" Color="OliveDrab"/>
+                            <Label Text="{Binding NameIngr}" FontFamily="Sinera" Padding="15"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Label Text="Pasos de Preparación:" FontAttributes="Bold" FontFamily="Sinera" Padding="5"/>
+            <CollectionView ItemsSource="{Binding Pasos}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding IsCompleted}" Color="OliveDrab"/>
+                            <Label Text="{Binding Description}" Padding="15" FontFamily="Sinera"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

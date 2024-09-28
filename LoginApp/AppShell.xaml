@@ -16,9 +16,10 @@
     <Shell.FlyoutFooter>
         <Button 
             x:Name="OnLogout"
+            FontFamily="Sinera"
             Text="Cerrar Sesión"
-            TextColor="White"
-            BackgroundColor="#281929"
+            CornerRadius="0"
+            BackgroundColor="OliveDrab"
             Clicked="OnLogout_Clicked"/>
     </Shell.FlyoutFooter>
 

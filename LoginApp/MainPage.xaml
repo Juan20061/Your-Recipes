@@ -15,6 +15,13 @@
          FontFamily="Sinera"
          TextColor="LightSlateGray"
          VerticalOptions="Center"/>-->
+
+        <Grid
+            Grid.RowSpan="2"
+            HorizontalOptions="Center">
+            <Image
+                Source="logo2.png" WidthRequest="1000" HeightRequest="90"/>
+        </Grid>
         <!--<Grid
         Grid.Row="1"
         Margin="25,10,25,10">
@@ -35,6 +42,7 @@
             VerticalOptions="Center"/>
         </Grid>-->
             <CarouselView
+        x:Name="Carrousel"
         IndicatorView="indicatorView"
         Grid.Row="2"
         ItemsSource="{Binding Recetas}"
@@ -122,10 +130,9 @@
            Margin="20,5,20,5"
            FontSize="18"
            Text="Recetas recomendadas"
-           TextColor="LightSlateGray"
            FontFamily="Sinera"
            VerticalOptions="Center"/>
-        <CollectionView Grid.Row="5"
+        <CollectionView Grid.Row="5" x:Name="collection"
             ItemsSource="{Binding Recetas2}">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout ItemSpacing="25" Orientation="Horizontal"/>
