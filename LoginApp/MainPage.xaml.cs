@@ -220,9 +220,7 @@ namespace LoginApp
                     new Steps {Description = "Coloca la masa en un bol ligeramente aceitado, cúbrela con un paño húmedo y deja reposar en un lugar cálido por aproximadamente 1 hora, o hasta que haya duplicado su tamaño.", IsCompleted = false},
                     new Steps {Description = "Una vez que la masa ha crecido, desgasifícala y forma un pan o varios bollos, según tu preferencia. Colócalos en una bandeja de horno preparada.", IsCompleted = false},
                     new Steps {Description = "Deja reposar los panes formados por unos 10 minutos mientras precalientas el horno a 220°C.", IsCompleted = false},
-                    new Steps {Description = "Hornea por unos 20-25 minutos o hasta que el pan esté dorado y suene hueco al golpearlo suavemente en la base.", IsCompleted = false},
-                    new Steps {Description = "", IsCompleted = false},
-                    new Steps {Description = "", IsCompleted = false},
+                    new Steps {Description = "Hornea por unos 20-25 minutos o hasta que el pan esté dorado y suene hueco al golpearlo suavemente en la base.", IsCompleted = false}
 
                 },
             },
