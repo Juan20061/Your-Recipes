@@ -23,7 +23,7 @@
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal">
                             <CheckBox IsChecked="{Binding IsCompleted}" Color="OliveDrab"/>
-                            <Label Text="{Binding NameIngr}" FontFamily="Sinera" Padding="15"/>
+                            <Label Text="{Binding NameIngr}" FontFamily="Sinera" Padding="15" />
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
@@ -34,7 +34,7 @@
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal">
                             <CheckBox IsChecked="{Binding IsCompleted}" Color="OliveDrab"/>
-                            <Label Text="{Binding Description}" Padding="15" FontFamily="Sinera"/>
+                            <Label Text="{Binding Description}" Padding="15" FontFamily="Sinera" LineBreakMode="WordWrap" MaxLines="3" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

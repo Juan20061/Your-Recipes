@@ -168,17 +168,28 @@ namespace LoginApp
             {
                 Name = "Galletas con Chispas de chocolate", 
                 ReadTime = new TimeSpan(0, 30, 0),
-                ImageSource = "gallet.jfif", 
+                ImageSource = "galletas.jpg", 
                 Description = "Galletas con chispas de chocolate",
 
                 Ingredientes = new ObservableCollection<Ingredients>
                 {
-                    new Ingredients {NameIngr = "", IsCompleted = false}
+                    new Ingredients {NameIngr = "1 1/2 tazas de harina", IsCompleted = false},
+                    new Ingredients {NameIngr = "1/2 cucharada de bicarbonato de sodio ", IsCompleted = false},
+                    new Ingredients {NameIngr = "1/2 cucharada de sal", IsCompleted = false},
+                    new Ingredients {NameIngr = "1/2 taza de azúcar morena", IsCompleted = false},
+                    new Ingredients {NameIngr = "1/4 taza de azúcar", IsCompleted = false},
+                    new Ingredients {NameIngr = "1 huevo grande", IsCompleted = false},
+                    new Ingredients {NameIngr = "1 barrita de mantequilla derretida (115 grs)", IsCompleted = false},
+                    new Ingredients {NameIngr = "1 cucharadita de vainilla", IsCompleted = false},
+                    new Ingredients {NameIngr = "3/4 taza de chispas de chocolate semiamargo", IsCompleted = false}
 
                 },
                 Pasos = new ObservableCollection<Steps>
                 {
-                    new Steps {Description = "", IsCompleted = false}
+                    new Steps {Description = "Precalentar el horno a 180ºC/350ºF. Preparar dos charolas para hornear.", IsCompleted = false},
+                    new Steps {Description = "En un tazón grande, colocar la harina con la sal y el bicarbonato. Mezclar con un globo (o un tenedor) vigorosamente, para separar la harina y repartir bien los ingredientes. Agregar los azúcares, mezclar, y agregar el huevo, mantequilla y vainilla. Mezclar muy bien y terminar de incorporar con una espátula.", IsCompleted = false},
+                    new Steps {Description = "Agregar las chispas de chocolate, mezclar nuevamente y formar de 16 a 20 bolitas con la masa. Colocar en las charolas aplastando *muy* ligeramente (se expanderán en el horno).", IsCompleted = false},
+                    new Steps {Description = "Hornear alrededor de 15 minutos, o hasta que las galletas apenas comiencen a dorar (podrá parecer que les falta cocción pero al sacarlas del horno endurecerán).", IsCompleted = false}
                 },
             },
             //RECETA 6
