@@ -8,9 +8,9 @@
             <!-- Fondo claro para dar sensación de amplitud -->
 
             <!-- Entrada para el nombre de la receta -->
-            <Label Text="Nombre de la receta:" FontFamily="Sinera" FontAttributes="Bold" TextColor="LightSlateGray" FontSize="15"/>
+            <Label Text="Nombre de la receta:" FontFamily="Sinera" FontAttributes="Bold" FontSize="15"/>
             <!-- Color vibrante pero no dominante -->
-            <Entry x:Name="Xreceta" FontFamily="Sinera" Placeholder="Nombre de la receta" TextColor="Gray" />
+            <Entry x:Name="Xreceta" FontFamily="Sinera" Placeholder="Nombre de la receta"/>
             <!-- Entrada con contraste sutil -->
 
             <!-- Botón para agregar ingredientes -->
@@ -18,7 +18,7 @@
             <!-- Botón destacado pero no agresivo -->
 
             <!-- Ingredientes seleccionados -->
-            <Label FontFamily="Sinera" Text="Ingredientes seleccionados:" FontAttributes="Bold" TextColor="LightSlateGray" />
+            <Label FontFamily="Sinera" Text="Ingredientes seleccionados:" FontAttributes="Bold"/>
             <Label FontFamily="Sinera" x:Name="SelectedIngredientsLabel" TextColor="Gray" />
 
             <!-- Tiempo de preparación -->
@@ -52,11 +52,11 @@
             <Button FontFamily="Sinera" x:Name="saveButton" Text="Guardar Receta" Clicked="saveButton_Clicked" BackgroundColor="OliveDrab" TextColor="White" />
 
             <!-- ListView para mostrar la lista de recetas -->
-            <ListView x:Name="listview" ItemTapped="listview_ItemTapped" HasUnevenRows="True" SeparatorVisibility="Default" BackgroundColor="#F3E5F5">
+            <ListView x:Name="listview" ItemTapped="listview_ItemTapped" HasUnevenRows="True" SeparatorVisibility="Default">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame Margin="10" Padding="10" HasShadow="True" BorderColor="#BB21D6" BackgroundColor="#EDE7F6">
+                            <Frame Margin="10" Padding="10" HasShadow="True" BorderColor="OliveDrab" BackgroundColor="#EDE7F6">
                                 <StackLayout Orientation="Vertical" Spacing="10">
                                     <Frame Padding="0" HeightRequest="150" WidthRequest="150" HasShadow="False" HorizontalOptions="Center" BackgroundColor="#9A2BAE">
                                         <Image Source="{Binding Imagen}" Aspect="AspectFill" HeightRequest="150" WidthRequest="150" />
@@ -66,7 +66,7 @@
                                         <Label FontFamily="Sinera" Text="{Binding Ingredientes}" FontSize="Medium" TextColor="Gray" LineBreakMode="TailTruncation" HorizontalOptions="Center" />
                                         <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
                                             <Image Source="clock_icon.png" HeightRequest="20" WidthRequest="20" />
-                                            <Label Text="{Binding TiempoPreparacion}" FontSize="Small" TextColor="Gray" />
+                                            <Label Text="{Binding TiempoPreparacion}" FontSize="Small" />
                                         </StackLayout>
                                     </StackLayout>
                                 </StackLayout>
