@@ -65,10 +65,12 @@ namespace LoginApp
             Title = "Mis Recetas",
             Icon = "uten1.png",
         };
-        myRecipesSection.Items.Add(new ShellContent
-        {
-            ContentTemplate = new DataTemplate(() => new MeRecipePage())
-        });
+
+
+        //myRecipesSection.Items.Add(new ShellContent
+        //{
+        //    ContentTemplate = new DataTemplate(() => new MeRecipePage())
+        //});
 
         // Agregar secciones a Shell
         Items.Add(homeSection);
