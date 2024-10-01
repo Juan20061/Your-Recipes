@@ -19,7 +19,7 @@
         <Button 
      
      FontFamily="Sinera"
-     Text="Agregar Receta"
+     Text="Cerrar Sesion"
      CornerRadius="0"
      BackgroundColor="OliveDrab"
      Clicked="Button_Clicked"/>

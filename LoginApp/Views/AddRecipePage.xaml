@@ -5,6 +5,9 @@
              Title="Agregar receta">
     <ScrollView>
         <StackLayout Padding="10" Spacing="10">
+
+            <ActivityIndicator x:Name="loadingIndicator" IsVisible="False" IsRunning="False" />
+
             <!-- Fondo claro para dar sensación de amplitud -->
 
             <!-- Entrada para el nombre de la receta -->

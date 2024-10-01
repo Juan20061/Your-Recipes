@@ -13,11 +13,9 @@ public partial class AddRecipePage : ContentPage
     public AddRecipePage(LocalDbService dbService)
 	{
 		InitializeComponent();
-        _dbService = dbService;
-
+        _dbService = new LocalDbService();
         LoadRecetas();
 
-        Task.Run(async () => listview.ItemsSource = await _dbService.GetRecetasAsync());
 
     }
 
@@ -27,30 +25,32 @@ public partial class AddRecipePage : ContentPage
     protected override void OnDisappearing()
     {
         base.OnDisappearing();
-
-        // Libera la imagen si existe
-        if (recetaImage?.Source != null)
-        {
-            recetaImage.Source = null;
-            recetaImage = null;
-        }
-        // Libera otros recursos si es necesario
-        GC.Collect();                  // Fuerza la recolección de basura para liberar objetos no utilizados
-        GC.WaitForPendingFinalizers();  // Espera a que finalicen las operaciones de recolección pendientes
-
-       
+        // Puedes limpiar datos o manejar el estado aquí
     }
 
     private async void LoadRecetas()
     {
-        listview.ItemsSource = await _dbService.GetRecetasAsync();
+
+        loadingIndicator.IsVisible = true; // Muestra el indicador de carga
+        try
+        {
+            var recetas = await _dbService.GetRecetasAsync();
+            listview.ItemsSource = recetas; // Asigna la lista de recetas a la vista
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", "No se pudieron cargar las recetas: " + ex.Message, "Aceptar");
+        }
+        finally
+        {
+            loadingIndicator.IsVisible = false; // Oculta el indicador de carga
+        }
     }
 
     private async void AddIngredients_Clicked(object sender, EventArgs e)
     {
         var ingredients = await DisplayActionSheet("Selecciona los ingredientes", "Cancelar", null, _ingredientesDisponibles.ToArray());
-
-        if (ingredients != null && ingredients != "Cancelar")
+        if (!string.IsNullOrEmpty(ingredients) && ingredients != "Cancelar")
         {
             _selectedIngredients = string.IsNullOrEmpty(_selectedIngredients) ? ingredients : $"{_selectedIngredients}, {ingredients}";
             SelectedIngredientsLabel.Text = _selectedIngredients;
@@ -70,32 +70,41 @@ public partial class AddRecipePage : ContentPage
             _imagePath = result.FullPath;
             recetaImage.Source = ImageSource.FromFile(_imagePath);
         }
+        else
+        {
+            await DisplayAlert("Error", "No se seleccionó ninguna imagen.", "Aceptar");
+        }
     }
 
     private async void saveButton_Clicked(object sender, EventArgs e)
     {
         try
         {
+            // Validar los inputs
             if (!ValidateInputs())
                 return;
 
             var receta = CreateRecetaFromInputs();
 
+            // Si es una nueva receta
             if (_editRecetaId == 0)
-                await _dbService.Create(receta);
+            {
+                await _dbService.Create(receta); // Crear la receta
+            }
             else
             {
                 receta.Id = _editRecetaId;
-                await _dbService.Update(receta);
-                _editRecetaId = 0;
+                await _dbService.Update(receta); // Actualizar la receta existente
+                _editRecetaId = 0; // Restablecer el ID después de la actualización
             }
 
-            ClearInputs();
-            LoadRecetas();
+            ClearInputs(); // Limpiar los inputs
+            LoadRecetas(); // Volver a cargar las recetas
         }
         catch (Exception ex)
         {
-            await DisplayAlert("Error", "Ocurrió un error: " + ex.Message, "Aceptar");
+            // Mostrar un mensaje de error si ocurre alguna excepción
+            await DisplayAlert("Error", $"Ocurrió un error: {ex.Message}", "Aceptar");
         }
     }
 

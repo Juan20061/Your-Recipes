@@ -16,11 +16,8 @@ namespace LoginApp.Models
 
         public LocalDbService()
         {
-            _connection = new SQLiteAsyncConnection(Path.Combine(FileSystem.AppDataDirectory,DB_NAME));
-
-            //le indicamos al sistema que cre la tabla de nuestro contexto 
-            _connection.CreateTableAsync<Recetas>();
-
+            _connection = new SQLiteAsyncConnection(Path.Combine(FileSystem.AppDataDirectory, DB_NAME));
+            _connection.CreateTableAsync<Recetas>().Wait();
         }
 
         //metodo para alistar los registros de nuestra tabla

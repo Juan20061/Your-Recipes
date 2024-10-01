@@ -41,6 +41,20 @@
             TextColor="White"
             VerticalOptions="Center"/>
         </Grid>-->
+        <Button
+           Text="Agregar"
+           FontAttributes="Bold"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           BackgroundColor="OliveDrab"
+           TextColor="White"
+           ImageSource="nueva.png"
+           HeightRequest="40"
+           WidthRequest="180"
+           CornerRadius="20"
+           Margin="0,10,0,10"
+           Clicked="Button_Clicked"/>
+        
             <CarouselView
         x:Name="Carrousel"
         IndicatorView="indicatorView"

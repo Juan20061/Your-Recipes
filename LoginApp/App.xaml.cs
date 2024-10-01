@@ -27,9 +27,10 @@ namespace LoginApp
         {
             bool isAuthenticated = await _authService.IsLoggedInAsync();
 
+            // El Shell debe ser instanciado correctamente aquí
             if (isAuthenticated)
             {
-                MainPage = new AppShell(); // Usuario autenticado, navega a la AppShell
+                MainPage = new AppShell(); // Asegúrate de que AppShell se inicializa correctamente
             }
             else
             {

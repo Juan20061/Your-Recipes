@@ -3,6 +3,7 @@ using System.ComponentModel;
 using LoginApp.Models;
 using YourRecipes.Models;
 using YourRecipes.Pages;
+using LoginApp.Views;
 
 namespace LoginApp
 {
@@ -10,11 +11,14 @@ namespace LoginApp
     {
         public ObservableCollection<Recipes> Recetas { get; set; } //Colección Recipes
         public ObservableCollection<Recipes> Recetas2 { get; set; } //Colección para orden diferente
-        
+        private readonly LocalDbService _dbService;
+
+
         public MainPage()
         {
             InitializeComponent();
             //InitializeRecipes();
+            _dbService = new LocalDbService();
             BindingContext = this;
 
             Recetas = new ObservableCollection<Recipes>
@@ -368,6 +372,11 @@ namespace LoginApp
             }
         }
 
+        private async  void Button_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddRecipePage(_dbService));
+        }
+       
     }
 
 }

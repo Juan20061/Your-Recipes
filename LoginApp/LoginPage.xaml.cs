@@ -32,6 +32,10 @@ public partial class LoginPage : ContentPage
 
             // Redirigir a la página principal si la autenticación fue exitosa
             Application.Current.MainPage = new AppShell();
+
+            // Mostrar el Flyout al iniciar sesión
+            await Task.Delay(100);  // Espera un momento antes de mostrar el Flyout
+            Shell.Current.FlyoutIsPresented = true;
         }
         else
         {

@@ -47,7 +47,7 @@
                         <Entry x:Name="EmailEntry"
                                Placeholder="Correo Electrónico" 
                                FontFamily="Sinera"
-                               TextColor="White"
+                              
                                FontAttributes="Bold"
                                VerticalOptions="Center" 
                                HorizontalOptions="FillAndExpand"
@@ -62,7 +62,7 @@
                         <Entry x:Name="PasswordEntry" 
                                FontFamily="Sinera"
                                Placeholder="Contraseña" 
-                               TextColor="White" 
+                          
                                FontAttributes="Bold" 
                                VerticalOptions="Center" 
                                HorizontalOptions="FillAndExpand" 
