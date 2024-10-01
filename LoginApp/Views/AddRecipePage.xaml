@@ -22,15 +22,15 @@
             <Label FontFamily="Sinera" x:Name="SelectedIngredientsLabel" TextColor="Gray" />
 
             <!-- Tiempo de preparación -->
-            <Label FontFamily="Sinera" Text="Tiempo de preparación (minutos):" FontAttributes="Bold" TextColor="LightSlateGray" />
+            <Label FontFamily="Sinera" Text="Tiempo de preparación (minutos):" FontAttributes="Bold" />
             <Entry FontFamily="Sinera" x:Name="tiempo" Placeholder="Tiempo en minutos" TextColor="Gray" Keyboard="Numeric" />
 
             <!-- Pasos a realizar -->
-            <Label FontFamily="Sinera" Text="Pasos a realizar:" FontAttributes="Bold" TextColor="LightSlateGray" />
+            <Label FontFamily="Sinera" Text="Pasos a realizar:" FontAttributes="Bold"  />
             <Editor FontFamily="Sinera" x:Name="Xpasos" Placeholder="Describe los pasos para realizar la receta" AutoSize="TextChanges" HeightRequest="100" TextColor="Gray" />
 
             <!-- Dificultad -->
-            <Label FontFamily="Sinera" Text="Dificultad:" FontAttributes="Bold" TextColor="LightSlateGray" />
+            <Label FontFamily="Sinera" Text="Dificultad:" FontAttributes="Bold"  />
             <Picker TextColor="Gray" FontFamily="Sinera" x:Name="dificultadPicker" >
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">

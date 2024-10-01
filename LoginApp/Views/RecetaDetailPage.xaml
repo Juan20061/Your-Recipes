@@ -4,7 +4,7 @@
              x:Class="LoginApp.Views.RecetaDetailPage"
              Title="RecetaDetailPage">
     <ScrollView>
-        <StackLayout Padding="20" Spacing="15" BackgroundColor="#FFFFFF">
+        <StackLayout Padding="20" Spacing="15" >
             <!-- Fondo blanco profesional y limpio -->
 
             <!-- Imagen de la receta destacada -->
@@ -16,14 +16,14 @@
             <Label x:Name="nombreRecetaLabel"
            FontSize="34"
            FontAttributes="Bold"
-           TextColor="#3E2841"
+          TextColor="Gray"
            HorizontalOptions="Center"
            VerticalOptions="Start" />
 
             <!-- Tarjeta de Ingredientes -->
             <Frame Padding="10" CornerRadius="10" HasShadow="True" BorderColor="#E0E0E0" BackgroundColor="#F5F5F5">
                 <StackLayout>
-                    <Label Text="Ingredientes" FontAttributes="Bold" FontSize="20" TextColor="#7B2D88" />
+                    <Label Text="Ingredientes" FontAttributes="Bold" FontSize="20" TextColor="Gray" />
                     <Label x:Name="ingredientesValueLabel" TextColor="Gray" FontSize="16" />
                 </StackLayout>
             </Frame>
@@ -34,7 +34,7 @@
                 <Frame Padding="8" CornerRadius="10" HasShadow="True" BorderColor="#E0E0E0" BackgroundColor="#F5F5F5" WidthRequest="150">
                     <StackLayout Orientation="Horizontal" VerticalOptions="Center">
                         <Image Source="clock_icon.png" HeightRequest="20" WidthRequest="20" />
-                        <Label Text="Tiempo:" FontAttributes="Bold" FontSize="15" TextColor="#7B2D88" />
+                        <Label Text="Tiempo:" FontAttributes="Bold" FontSize="15" TextColor="Gray" />
                         <Label x:Name="tiempoValueLabel" TextColor="Gray" FontSize="16" />
                     </StackLayout>
                 </Frame>
@@ -42,7 +42,7 @@
                 <!-- Dificultad -->
                 <Frame Padding="10" CornerRadius="10" HasShadow="True" BorderColor="#E0E0E0" BackgroundColor="#F5F5F5" WidthRequest="150">
                     <StackLayout Orientation="Horizontal" VerticalOptions="Center">
-                        <Label Text="Dificultad:" FontAttributes="Bold" FontSize="15" TextColor="#7B2D88" />
+                        <Label Text="Dificultad:" FontAttributes="Bold" FontSize="15" TextColor="Gray" />
                         <Label x:Name="dificultadValueLabel" TextColor="Gray" FontSize="16" />
                     </StackLayout>
                 </Frame>
@@ -51,14 +51,14 @@
             <!-- Tarjeta de Pasos -->
             <Frame Padding="10" CornerRadius="10" HasShadow="True" BorderColor="#E0E0E0" BackgroundColor="#F5F5F5">
                 <StackLayout>
-                    <Label Text="Pasos" FontAttributes="Bold" FontSize="20" TextColor="#7B2D88" />
+                    <Label Text="Pasos" FontAttributes="Bold" FontSize="20" TextColor="Gray" />
                     <Label x:Name="pasosValueLabel" TextColor="Gray" FontSize="16" />
                 </StackLayout>
             </Frame>
 
             <!-- Botón de regresar -->
             <Button Text="Volver"
-            BackgroundColor="#BB21D6"
+             BackgroundColor="OliveDrab"
             TextColor="White"
             FontSize="18"
             CornerRadius="20"

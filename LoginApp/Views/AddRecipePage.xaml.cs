@@ -24,6 +24,22 @@ public partial class AddRecipePage : ContentPage
     public AddRecipePage()
     {
     }
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+
+        // Libera la imagen si existe
+        if (recetaImage?.Source != null)
+        {
+            recetaImage.Source = null;
+            recetaImage = null;
+        }
+        // Libera otros recursos si es necesario
+        GC.Collect();                  // Fuerza la recolección de basura para liberar objetos no utilizados
+        GC.WaitForPendingFinalizers();  // Espera a que finalicen las operaciones de recolección pendientes
+
+       
+    }
 
     private async void LoadRecetas()
     {

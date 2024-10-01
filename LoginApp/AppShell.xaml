@@ -14,13 +14,17 @@
 
     <!-- Footer para cerrar sesión -->
     <Shell.FlyoutFooter>
+
+    
         <Button 
-            x:Name="OnLogout"
-            FontFamily="Sinera"
-            Text="Cerrar Sesión"
-            CornerRadius="0"
-            BackgroundColor="OliveDrab"
-            Clicked="OnLogout_Clicked"/>
+     
+     FontFamily="Sinera"
+     Text="Agregar Receta"
+     CornerRadius="0"
+     BackgroundColor="OliveDrab"
+     Clicked="Button_Clicked"/>
+
+
     </Shell.FlyoutFooter>
 
 </Shell>

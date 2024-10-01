@@ -45,18 +45,19 @@ namespace LoginApp
         };
         addRecipeSection.Items.Add(new ShellContent
         {
-            ContentTemplate = new DataTemplate(() => new AddRecipePage(_dbService))
+
+            ContentTemplate = new DataTemplate(() => new LoginPage())
         });
 
         // Página Crear Cuenta
         var registerSection = new ShellSection
         {
-            Title = "Crear Cuenta",
+            Title = "Cerrar Sesion",
             Icon = "perfil.png",
         };
         registerSection.Items.Add(new ShellContent
         {
-            ContentTemplate = new DataTemplate(() => new RegisterPage())
+            ContentTemplate = new DataTemplate(() => new LoginPage())
         });
 
         // Página Mis Recetas
@@ -66,11 +67,7 @@ namespace LoginApp
             Icon = "uten1.png",
         };
 
-
-        //myRecipesSection.Items.Add(new ShellContent
-        //{
-        //    ContentTemplate = new DataTemplate(() => new MeRecipePage())
-        //});
+ 
 
         // Agregar secciones a Shell
         Items.Add(homeSection);
@@ -94,9 +91,9 @@ namespace LoginApp
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage());
+            await Navigation.PushAsync(new AddRecipePage(_dbService));
 
-
+              
         }
 
         private async void Button_Clicked_1(object sender, EventArgs e)
