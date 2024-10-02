@@ -40,24 +40,24 @@ namespace LoginApp
         // Página Agregar
         var addRecipeSection = new ShellSection
         {
-            Title = "Agregar",
-            Icon = "nueva.png",
+            Title = "Mas Inf+",
+            Icon = "nos.png",
         };
         addRecipeSection.Items.Add(new ShellContent
         {
 
-            ContentTemplate = new DataTemplate(() => new LoginPage())
+            ContentTemplate = new DataTemplate(() => new MeRecipePage())
         });
 
         // Página Crear Cuenta
         var registerSection = new ShellSection
         {
-            Title = "Cerrar Sesion",
-            Icon = "perfil.png",
+            Title = "Agregar Receta",
+            Icon = "nueva.png",
         };
         registerSection.Items.Add(new ShellContent
         {
-            ContentTemplate = new DataTemplate(() => new LoginPage())
+            ContentTemplate = new DataTemplate(() => new AddRecipePage(_dbService))
         });
 
         // Página Mis Recetas

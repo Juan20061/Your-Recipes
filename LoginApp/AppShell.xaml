@@ -22,7 +22,7 @@
      Text="Cerrar Sesion"
      CornerRadius="0"
      BackgroundColor="OliveDrab"
-     Clicked="Button_Clicked"/>
+     Clicked="OnLogout_Clicked"/>
 
 
     </Shell.FlyoutFooter>
